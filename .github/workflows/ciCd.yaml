@@ -50,7 +50,7 @@ jobs:
         working-directory: .
 
       - name: Upload artefatos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Package
           path: ./target/*.jar
@@ -63,6 +63,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run script
-        run: sh ././scripts/shell.sh
+        run: sh ./scripts/shell.sh
         env:
           RECIPIENT_EMAIL: "rcmagalhaes@ges.inatel.br"
