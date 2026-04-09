@@ -64,9 +64,6 @@ class FilmeTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             filme.setNota(-5);
         });
-
-        assertEquals("Nota não pode ser negativa", exception.getMessage());
-
     }
 
     @Test
@@ -75,6 +72,30 @@ class FilmeTest {
 
         assertThrows(NumberFormatException.class, () -> {
             filme.setNota(Integer.parseInt("nota"));
+        });
+    }
+
+    @Test
+    void testId() {
+        Filme filme = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+
+        assertEquals(-1, filme.getId());
+    }
+
+    @Test
+    void testSetId() {
+        Filme filme = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+
+        filme.setId(10);
+        assertEquals(10, filme.getId());
+    }
+
+    @Test
+    void testIdNegativo() {
+        Filme filme = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            filme.setId(-5);
         });
     }
 

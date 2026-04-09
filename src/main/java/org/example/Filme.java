@@ -2,6 +2,7 @@ package org.example;
 
 public class Filme
 {
+    int id;
     String titulo;
     String diretor;
     int anoLancamento;
@@ -9,6 +10,7 @@ public class Filme
     int nota;
 
     public Filme(String titulo, String diretor, int anoLancamento) {
+        this.id = -1;
         this.titulo = titulo;
         this.diretor = diretor;
         this.anoLancamento = anoLancamento;
@@ -18,6 +20,9 @@ public class Filme
 
     public String getTitulo() {
         return titulo;
+    }
+    public int getId(){
+        return id;
     }
 
     public String getDiretor() {
@@ -45,6 +50,16 @@ public class Filme
         if (nota < 0)
         {
             throw new IllegalArgumentException("Nota não pode ser negativa");
+        }
+    }
+
+    void setId(int id)
+    {
+        this.id = id;
+
+        if (id < 0)
+        {
+            throw new IllegalArgumentException("ID não pode ser negativo");
         }
     }
 }

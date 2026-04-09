@@ -55,4 +55,131 @@ class CatalogoFilmesTest {
         });
     }
 
+    @Test
+    void buscarFilmesPorTitulo() {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorTitulo("O Poderoso Chefão");
+
+        assertTrue(filmesEncontrados[0].getTitulo().equalsIgnoreCase("O Poderoso Chefão"));
+    }
+
+    @Test
+    void buscarTituloRepetido() {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("Kill Bill", "Tentin Quarantino", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorTitulo("Kill Bill");
+
+        assertTrue(filmesEncontrados[0].getDiretor().equalsIgnoreCase("Tentin Quarantino"));
+        assertTrue(filmesEncontrados[1].getDiretor().equalsIgnoreCase("Quentin Tarantino"));
+    }
+
+    @Test
+    void buscaFalha()
+    {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorTitulo("Inception");
+
+        assertEquals(0, filmesEncontrados.length);
+    }
+
+    @Test
+    void buscarFilmesPorDiretor() {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorDiretor("Francis Ford Coppola");
+
+        assertTrue(filmesEncontrados[0].getTitulo().equalsIgnoreCase("O Poderoso Chefão"));
+    }
+
+    @Test
+    void buscarDiretorRepetido() {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("Bill Kill", "Tentin Quarantino", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorDiretor("Quentin Tarantino");
+
+        assertTrue(filmesEncontrados[0].getTitulo().equalsIgnoreCase("Kill Bill"));
+        assertTrue(filmesEncontrados[1].getTitulo().equalsIgnoreCase("Pulp Fiction"));
+    }
+
+    @Test
+    void buscaFalhaDiretor()
+    {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        Filme[] filmesEncontrados = catalogo.buscarFilmesPorDiretor("Paul Thomas Anderson");
+
+        assertEquals(0, filmesEncontrados.length);
+    }
+
+    @Test
+    void testIdCatalogo()
+    {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+
+        catalogo.adicionarFilme(filme);
+
+        assertEquals(0, filme.getId());
+    }
+
+    @Test
+    void testDelete()
+    {
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+        Filme filme1 = new Filme("O Poderoso Chefão", "Francis Ford Coppola", 1972);
+        Filme filme2 = new Filme("Kill Bill", "Quentin Tarantino", 2006);
+        Filme filme3 = new Filme("Pulp Fiction", "Quentin Tarantino", 1994);
+
+        catalogo.adicionarFilme(filme1);
+        catalogo.adicionarFilme(filme2);
+        catalogo.adicionarFilme(filme3);
+
+        catalogo.removerFilmePorId(1);
+
+        assertEquals(filme3, catalogo.getFilmes()[1]);
+    }
 }
