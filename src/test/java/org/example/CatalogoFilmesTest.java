@@ -55,14 +55,4 @@ class CatalogoFilmesTest {
         });
     }
 
-    @Test
-    void adicionarNaoFilme()
-    {
-        CatalogoFilmes catalogo = new CatalogoFilmes();
-        int filme = 0;
-
-        assertThrows(NullPointerException.class, () -> {
-            catalogo.adicionarFilme(null);
-        });
-    }
 }

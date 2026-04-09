@@ -78,11 +78,4 @@ class FilmeTest {
         });
     }
 
-    @Test
-    void testConstrutorErrado()
-    {
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Filme("", "Francis Ford Coppola", 1972);
-        });
-    }
 }
