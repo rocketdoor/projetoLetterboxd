@@ -22,13 +22,13 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test site
-        working-directory: ./projetoLetterboxd
+        working-directory: .
 
       - name: Upload artefatos
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: projetoLetterboxd/target/site/
+          path: ./target/site/
 
 
   build:
@@ -47,13 +47,13 @@ jobs:
 
       - name: Run Build
         run: mvn clean install
-        working-directory: ./projetoLetterboxd
+        working-directory: .
 
       - name: Upload artefatos
         uses: actions/upload-artifact@v3
         with:
           name: Package
-          path: projetoLetterboxd/target/*.jar
+          path: ./target/*.jar
 
   Send-email:
     name: Send-email
@@ -63,6 +63,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run script
-        run: sh ./projetoLetterboxd/scripts/shell.sh
+        run: sh ././scripts/shell.sh
         env:
           RECIPIENT_EMAIL: "rcmagalhaes@ges.inatel.br"
