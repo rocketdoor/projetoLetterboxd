@@ -1,3 +1,60 @@
 what exception should i throw if i try to add another movie after 100
 
 You should throw an exception that clearly indicates the issue. A IllegalStateException is appropriate in this case, as it signals that the operation cannot be performed due to the current state of the object.
+
+
+
+i need to deploy this project on the web, so i need to show something, what should i do
+
+To deploy your project on the web and display something, you can create a simple web application using a Java web framework like Spring Boot. Here's how you can proceed:
+Steps:
+Add Spring Boot Dependencies: Add the following dependencies to your pom.xml to enable Spring Boot and web functionality:
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+</dependencies>
+Create a Controller: Create a controller to handle HTTP requests and display data.
+package app;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+public class FilmeController {
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("message", "Welcome to the Movie Catalog!");
+        return "index";
+    }
+}
+Create a Template: Add an HTML file in src/main/resources/templates/index.html to display the content.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Catalog</title>
+</head>
+<body>
+    <h1>${message}</h1>
+</body>
+</html>
+Run the Application: Create a main class to start the Spring Boot application.
+package app;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class App {
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+}
+Run and Access:
+Run the application using mvn spring-boot:run or by running the App class.
+Access the application in your browser at http://localhost:8080.
+This will display a simple web page with the message "Welcome to the Movie Catalog!". You can expand this by adding more routes, templates, and functionality.
