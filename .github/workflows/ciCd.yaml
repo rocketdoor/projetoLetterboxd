@@ -30,6 +30,11 @@ jobs:
           name: test-results
           path: ./target/site/
 
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdir -p docs
+          cp -r target/site/* docs/
+
 
   build:
     name: Build
