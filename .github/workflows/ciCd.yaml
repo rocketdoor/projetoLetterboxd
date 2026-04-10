@@ -30,12 +30,6 @@ jobs:
           name: test-results
           path: ./target/site/
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
-        with:
-          name: deploy
-          path: ./target/site
-
   build:
     name: Build
     runs-on: ubuntu-latest
