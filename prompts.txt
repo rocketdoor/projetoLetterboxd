@@ -1,11 +1,17 @@
+prompt:
 what exception should i throw if i try to add another movie after 100
 
+output:
 You should throw an exception that clearly indicates the issue. A IllegalStateException is appropriate in this case, as it signals that the operation cannot be performed due to the current state of the object.
 
+resultado:
+bom, me ajudou e me deu um norte para o que pesquisar depois
 
 
+prompt:
 i need to deploy this project on the web, so i need to show something, what should i do
 
+output:
 To deploy your project on the web and display something, you can create a simple web application using a Java web framework like Spring Boot. Here's how you can proceed:
 Steps:
 Add Spring Boot Dependencies: Add the following dependencies to your pom.xml to enable Spring Boot and web functionality:
@@ -66,3 +72,67 @@ Create a docs folder: In your project root, create a docs folder. GitHub Pages w
 Add an index.html file: Inside the docs folder, create an index.html file. This will be the homepage of your GitHub Pages site.
 Write content for the website: Add details about your project, such as its purpose, features, and how to use it.
 Here’s an example of the index.html file:
+
+resultado:
+nao resolveu nada
+
+prompt:
+i need something to show on my github pages website for this project
+
+output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Catalog Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+    <header>
+        <h1>Movie Catalog Project</h1>
+    </header>
+    <div class="container">
+        <h2>About the Project</h2>
+        <p>This project is a Java-based movie catalog application. It allows users to manage a collection of movies, including adding, removing, and displaying movie details.</p>
+        <h2>Features</h2>
+        <ul>
+            <li>Add movies to the catalog</li>
+            <li>Remove movies by title</li>
+            <li>View the catalog through a web interface</li>
+        </ul>
+        <h2>How to Run</h2>
+        <p>To run the project, clone the repository and use Maven to build and start the application. Access the web interface at <code>http://localhost:8080</code>.</p>
+    </div>
+    <footer>
+        <p>&copy; 2023 Movie Catalog Project</p>
+    </footer>
+</body>
+</html>
+
+resultado:
+satisfatorio, na maior parte
