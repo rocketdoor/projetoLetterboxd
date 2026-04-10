@@ -31,9 +31,6 @@ jobs:
           path: ./target/site/
 
       - name: Deploy to GitHub Pages
-        permissions:
-          pages: write
-          id-token: write
         steps:
           - uses: actions/deploy-pages@v2
 
