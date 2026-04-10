@@ -58,3 +58,11 @@ Run and Access:
 Run the application using mvn spring-boot:run or by running the App class.
 Access the application in your browser at http://localhost:8080.
 This will display a simple web page with the message "Welcome to the Movie Catalog!". You can expand this by adding more routes, templates, and functionality.
+
+i need something to show on my github pages website for this project
+
+To showcase your project on GitHub Pages, you can create a simple static website that explains your project and provides details about its functionality. Here's how you can do it:
+Create a docs folder: In your project root, create a docs folder. GitHub Pages will use this folder to serve your website.
+Add an index.html file: Inside the docs folder, create an index.html file. This will be the homepage of your GitHub Pages site.
+Write content for the website: Add details about your project, such as its purpose, features, and how to use it.
+Here’s an example of the index.html file:
